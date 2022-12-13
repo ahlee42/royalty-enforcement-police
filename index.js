@@ -42,11 +42,29 @@ app.post("/webhook-handler", async(req, res) => {
 
     const gpt3Prompt = getGpt3Dialog(feePayer) 
 
+    // Upload GPT screenshot to Twitter
+    
+    // Upload NFT image to Twitter
+    
     // Send out tweet here.
-
-
+    sendTweet();
 
 })
+
+async function sendTweet (tweetText: string, mediaObject: object) => {
+  try {
+    const postTweet = await twitterClient.tweets.createTweet({
+      // The text of the Tweet
+      text: tweetText,
+      media: mediaObject,        
+    });
+    console.dir(postTweet, {
+      depth: null,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+})();
 
 const generateGpt3Prompt = (feePayer) => {
     return `write a poem about ${feePayer} who stole 10 billion dollars of client funds and commited fraud.`
