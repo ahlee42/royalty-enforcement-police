@@ -10,6 +10,30 @@ const PORT = parseInt(process.env.PORT || "8080")
 const HELIUS_API_KEY= process.env.HELIUS_API_KEY || ""
 const GPT3_API_KEY= process.env.GPT3_API_KEY || ""
 
+const app = express()
+
+app.use(express.json())
+app.use(bodyParser.urlencoded({
+    extended: true,
+}))
+app.use(cors())
+
+
+const sendTweet = async(tweetText, mediaObject) => {
+    try {
+      const postTweet = await twitterClient.tweets.createTweet({
+        // The text of the Tweet
+        text: tweetText,
+        media: mediaObject,        
+      });
+      console.dir(postTweet, {
+        depth: null,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+}
+
 const generateGpt3Prompt = (feePayer) => {
     const style = prompt_style[Math.floor(Math.random() * prompt_style.length) - 1]
     const narrarator = prompt_narrators[Math.floor(Math.random() * prompt_narrators.length) - 1]
@@ -76,7 +100,7 @@ app.post("/", async(req, res) => {
 
     const gpt3Prompt = getGpt3Dialog(feePayer) 
 
-    // Send out tweet here.
+    sendTweet(gpt3Prompt, "_")
 
 })
 
