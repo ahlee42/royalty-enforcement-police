@@ -8,20 +8,12 @@ var Twitter = require('twitter-api-sdk');
 
 const HELIUS_API_URL= "https://api.helius.xyz"
 const GPT3_API_URL = "https://api.openai.com"
-const TWITTER_API_URL = "https://api.twitter.com"
 const PORT = parseInt(process.env.PORT || "8080") 
-const HELIUS_API_KEY= process.env.HELIUS_API_KEY || ""
-const GPT3_API_KEY= process.env.GPT3_API_KEY || ""
-const TWITTER_API_KEY = process.env.TWITTER_API_KEY || ""
+const HELIUS_API_KEY= process.env.HELIUS_API_KEY || "624a8340-7e27-4f80-98a8-d36af94f3863"
+const GPT3_API_KEY= process.env.GPT3_API_KEY || "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"
+const TWITTER_API_KEY = process.env.TWITTER_API_KEY || "AAAAAAAAAAAAAAAAAAAAADaKkQEAAAAAQBPbcjVbukNwz8H5%2BWH5P3Wl2Yc%3DrUTgx4LX017hKvEOIUROi3YohJRwOVIK7DTFh0JByFAqHMVcXv"
 
 const twitter = new Twitter.Client(TWITTER_API_KEY);
-
-// var client = new Twitter({
-//     consumer_key: process.env.TWITTER_CONSUMER_KEY,
-//     consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
-//     access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY,
-//     access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
-// })
 
 const app = express()
 
@@ -218,11 +210,8 @@ app.post("/", async(req, res) => {
         }
     
         const gpt3Prompt = getGpt3Dialog(feePayer) 
-    
-        // const response = uploadMedia(imageUrl)
 
-
-        sendTweet(gpt3Prompt, "_")
+        sendTweet(gpt3Prompt, null)
     
     
         res.status(200).json({
