@@ -1,5 +1,5 @@
 export const prompt_beginning = "Write a ";
-export const prompt_style: string[] = [
+export const prompt_style = [
     'rap', 
     'song', 
     'poem', 
@@ -9,8 +9,9 @@ export const prompt_style: string[] = [
     'statement', 
     'prayer', ]
 export const prompt_middle = "by ";
-export const prompt_narrators: string[] = 
+export const prompt_narrators = 
     [
+        'Sam Bankman Fried',
         'Barack Obama', 
         'Taylor Swift', 
         'Ariana Grande', 
@@ -56,7 +57,7 @@ export const prompt_narrators: string[] =
         'a proud squirrel doctor',
         'a turtle traffic cop',
     ];
-export const prompt_end: string[] = 
+export const prompt_end = 
     [
         ' that compares not paying royalties on digital art to stubbing your toe.',
         ' that compares not paying royalties on digital art to tripping on a banana.',
