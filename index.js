@@ -2,7 +2,7 @@ var express = require("express");
 var axios = require("axios");
 var cors = require("cors");
 var bodyParser = require("body-parser");
-const http = require('http'); // or 'https' for https:// URLs
+const http = require('http');
 const fs = require('fs');
 var Twitter = require('twitter-api-sdk');
 
@@ -190,14 +190,12 @@ app.post("/", async(req, res) => {
     try{
         const nfts = req.body[0]?.events?.nft?.nfts
 
-        const firstNftMint = nfts[0]
+        const nft = nfts[0]
     
-        const mint= firstNftMint?.mint
+        const mint= nft?.mint
         const { data: metadata } = await axios.post(`${HELIUS_API_URL}/v0/tokens/metadata?api-key=${HELIUS_API_KEY}`, {
             mintAccounts: [ mint ]
         })
-    
-        const imageUrl = metadata.offChainData.image
     
         const creators = metadata[0]?.onChainData?.data?.creators?.map(x => x.address);
     
