@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+          "module": "commonjs",
+          "target": "ES2019",
+          "noImplicitAny": true,
+          "declaration": true,
+          "removeComments": true,
+          "preserveConstEnums": true,
+          "esModuleInterop": true,
+          "downlevelIteration": true,
+          "sourceMap": false,
+          "outDir": "lib",
+          "lib": ["es2019", "dom"]
+    },
+    "exclude": ["node_modules"]
+}

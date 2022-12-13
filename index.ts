@@ -2,12 +2,19 @@ import express from "express";
 import axios from "axios";
 import cors from "cors";
 import bodyParser from "body-parser";
+import { ChatGPTAPI, getOpenAIAuth } from 'chatgpt'
 
+const HELIUS_API_URL: string = "https://api.helius.xyz"
+const PORT: number = parseInt(process.env.PORT || "8080") 
 const HELIUS_API_KEY: string = process.env.HELIUS_API_KEY || ""
 const GPT3_USERNAME: string = process.env.GPT3_USER_NAME || ""
 const GPT3_PASSWORD: string = process.env.GPT3_PASSWORD || ""
 
 const app = express()
+
+var openAIAuth: any
+var gpt3: ChatGPTAPI
+
 app.use(express.json())
 app.use(bodyParser.urlencoded({
     extended: true,
@@ -22,7 +29,7 @@ app.post("/webhook-handler", async(req, res) => {
     const firstNftMint: any = nfts[0]
 
     const mint: string = firstNftMint?.mint
-    const { data: metadata } = await axios.post(`https://api.helius.xyz/v0/tokens/metadata?api-key=${HELIUS_API_KEY}`, {
+    const { data: metadata } = await axios.post(`${HELIUS_API_URL}/v0/tokens/metadata?api-key=${HELIUS_API_KEY}`, {
         mintAccounts: [ mint ]
     })
 
@@ -37,25 +44,30 @@ app.post("/webhook-handler", async(req, res) => {
         return 
     }
 
-
-
-
-
-
-
-
-
-
+    const shameText: string = await gpt3.sendMessage('Write a python version of bubble sort.')
+    
+    console.log(shameText)
 
 })
 
 
-const generateGPT3Dialog = (): Promise<string> => {
+app.post("/", async(req, res) => {
+
+    const shameText: string = await gpt3.sendMessage('Write a python version of bubble sort.')
     
-}
+    console.log(shameText)
+
+    return shameText
+
+})
 
 
-
-
-
-
+app.listen(PORT, async() => {
+    openAIAuth = await getOpenAIAuth({
+        email: GPT3_USERNAME,
+        password: GPT3_PASSWORD
+    })
+    gpt3 = new ChatGPTAPI({ ...openAIAuth })
+    await gpt3.ensureAuth()
+    console.log(`Royalty Enforcement Police started on port: ${PORT}`)
+})
