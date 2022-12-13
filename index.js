@@ -49,7 +49,7 @@ if (paidRoyalty) {
 
 const gpt3Prompt = getGpt3Dialog(feePayer)
 
-const tweetText = feePayer + " didn't pay royalties on " + mint + ".";
+const tweetText = feePayer + " didn't pay royalties on this NFT. To denounce this action, we present the following: ";
 
 // Upload GPT screenshot to Twitter
 const mediaGPT = await uploadMedia();
