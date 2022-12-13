@@ -1,5 +1,13 @@
 export const prompt_beginning = "Write a ";
-export const prompt_style: string[] = ['rap', 'song', 'poem', 'speech', 'haiku', 'sonnet']
+export const prompt_style: string[] = [
+    'rap', 
+    'song', 
+    'poem', 
+    'speech', 
+    'haiku', 
+    'sonnet', 
+    'statement', 
+    'prayer', ]
 export const prompt_middle = "by ";
 export const prompt_narrators: string[] = 
     [
@@ -38,13 +46,37 @@ export const prompt_narrators: string[] =
         'a 14 year old girl with ADHD',
         'a 60 year old man who has lived through several financial bubbles',
         'a 87 year old Japanese man who runs a pizza shop',
-        'a vegan crypto billionaire'
+        'a vegan crypto billionaire',
+        'a 40 year old man who roleplays as a cat',
+        'a professor from MIT',
+        'a detective penguin',
+        'a cat accountant',
+        'a dog dentist',
+        'a parrot pilot',
+        'a proud squirrel doctor',
+        'a turtle traffic cop',
     ];
 export const prompt_end: string[] = 
     [
         ' that compares not paying royalties on digital art to stubbing your toe.',
         ' that compares not paying royalties on digital art to tripping on a banana.',
         ' that compares not paying royalties on digital art to farting in an elevator.',
+        ' that compares not paying royalties on digital art to eating the last cookie in the jar.',
+        ' that compares not paying royalties on digital art to trying to eat a piece of cake without taking a bite.',
+        ' that compares not paying royalties on digital art to trying to swim without getting wet.',
+        ' that compares not paying royalties on digital art to trying to run a marathon without training.',
+        ' that compares not paying royalties on digital art to trying to sneak into a movie theater without paying.',
+        ' that compares not paying royalties on digital art to borrowing a friend\'s car without asking.',
+        ' that compares not paying royalties on digital art to going to a restaurant and not tipping the waiter.',
+        ' that compares not paying royalties on digital art to going to a concert and trying to sneak into the VIP section.',
+        ' that compares not paying royalties on digital art to trying to shoplift from a grocery store.',
+        ' that compares not paying royalties on digital art to trying to get a free gym membership by using someone else\'s ID.',
+        ' that compares not paying royalties on digital art to trying to use a fake ID to buy alcohol',
+        ' that compares not paying royalties on digital art to a penguin walking into a bar, ordering a martini, and proceeding to perform stand-up comedy for the astonished patrons.',
+        ' that compares not paying royalties on digital art to a group of cows in a field starting a synchronized dance routine to the beat of "YMCA" blaring from a nearby radio.',
+        ' that compares not paying royalties on digital art to a chicken wearing a tutu and ballet slippers performing a perfect pas de deux with a surprised farmer.',
+        ' that compares not paying royalties on digital art to a cat, a dog, and a hamster teaming up to open a detective agency and solve the case of the missing toilet paper roll.',
+        ' that compares not paying royalties on digital art to a group of geriatric dolphins escaping from a retirement home and head to the beach for a wild night of surfing and partying.',
+        ' that compares not paying royalties on digital art to a group of chickens start a band and perform a rocking concert in the middle of a farm.',
         ' that scolds the users for not paying royalties on digital art like a caring grandma.',
-        
     ]
